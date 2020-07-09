@@ -16,7 +16,7 @@ def load_model():
         model = pickle.load(input_file)
     return(model)
 
-def test(model,text:str):
+def predict(model,text:str):
     text      = pd.DataFrame(data={'review':[text]}, columns=['review'])
     doc       = clean_up_text(text)
     lemma     = tokenize(doc)
@@ -35,4 +35,4 @@ def test(model,text:str):
 # how to test
 # >>> from src.models.test import *
 # >>> model = load_model()
-# >>> test = test(model, 'Best SPA, attention 10/10. Amazing food and experience!! 100% recommended. Massages are great, rooms are clean and location is great. Definitely going to come back! If you want to have the whole Antigua experience don’t hesitate to choose this hotel.')
+# >>> test = predict(model, 'Best SPA, attention 10/10. Amazing food and experience!! 100% recommended. Massages are great, rooms are clean and location is great. Definitely going to come back! If you want to have the whole Antigua experience don’t hesitate to choose this hotel.')
